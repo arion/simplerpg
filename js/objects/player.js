@@ -1,8 +1,8 @@
 Crafty.c('Player', {
   init: function() {
-    this.requires("Unit");
-    this.requires("player");
-    this.requires("Fourway");
+    this.requires("Unit"); // подключаем компонент юнита
+    this.requires("player"); // подключаем спрайт игрока
+    this.requires("Fourway"); // подключаем компонент движения
     
     this.attr({x: 0, y: 0, z: 1});
     
@@ -12,10 +12,6 @@ Crafty.c('Player', {
     this.animate("walk_down", 0, 3, 2);
     
     this.fourway(1);
-    
-    this.bind("KeyUp", function(e) {
-      this.stop();
-    });
 
     this.onHit("flower", function(e) {
       var object = e[0].obj;

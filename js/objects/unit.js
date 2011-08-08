@@ -3,30 +3,13 @@ Crafty.c('Unit', {
     this.requires("2D");
     this.requires("Canvas");
     this.requires("SpriteAnimation");
-    this.requires("Collision");
+    this.requires("Collision"); // компонент столкновения
     
     this.attr({x: 0, y: 0, z: 1});
     
-    this.bind("Moved", function(e) {
-      if(this.x < e.x) {
-        if(!this.isPlaying("walk_left"))
-          this.stop().animate("walk_left", 10);
-      }
-      if(this.x > e.x) {
-        if(!this.isPlaying("walk_right"))
-          this.stop().animate("walk_right", 10);
-      }
-      if(this.y < e.y) {
-        if(!this.isPlaying("walk_up"))
-          this.stop().animate("walk_up", 10);
-      }
-      if(this.y > e.y) {
-        if(!this.isPlaying("walk_down"))
-          this.stop().animate("walk_down", 10);
-      }
-    });
+    this.collision(); // подключаем компонент столкновения
     
-    this.collision();
+    // отрабатывем событие столкновения с камнем
     
     this.onHit("hard_bush", function(e) {
       var object = e[0].obj;
@@ -49,6 +32,28 @@ Crafty.c('Unit', {
       if (object.y > this.y && this.y < (object.y + Settings.poligon)) {
         this.y -= this._speed;
         this.stop();
+      }
+    });
+    
+    // анимация движения, сами указатели на спрайты
+    // находятся в дочерних компонентах
+    
+    this.bind("Moved", function(e) {
+      if(this.x < e.x) {
+        if(!this.isPlaying("walk_left"))
+          this.stop().animate("walk_left", 10);
+      }
+      if(this.x > e.x) {
+        if(!this.isPlaying("walk_right"))
+          this.stop().animate("walk_right", 10);
+      }
+      if(this.y < e.y) {
+        if(!this.isPlaying("walk_up"))
+          this.stop().animate("walk_up", 10);
+      }
+      if(this.y > e.y) {
+        if(!this.isPlaying("walk_down"))
+          this.stop().animate("walk_down", 10);
       }
     });
   }

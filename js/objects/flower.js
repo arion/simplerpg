@@ -1,7 +1,7 @@
 Crafty.c('Flower', {
   init: function() {
     this.requires("2D");
-    this.requires("DOM");
+    this.requires("Canvas");
     this.requires("flower");
     this.requires("SpriteAnimation");
     
@@ -15,6 +15,7 @@ Crafty.c('Flower', {
   },
   
   clear: function() {
-    $(this.removeComponent('flower')._element).hide();
+    this.removeComponent('flower');
+    this._visible = false;
   }
 });
