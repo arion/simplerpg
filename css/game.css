@@ -1,2 +1,4 @@
-body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px }
-#cr-stage { border:2px solid black; margin:5px auto; color:white }
+body, html { margin:0; padding: 0; overflow:hidden; font-family:Arial; font-size:20px; background-color: #000; }
+#cr-stage { color:white; float:left; }
+#sidebar { top: 0; left: 0; width: 150px; height: 100px; position: absolute; color:white;}
+#sidebar div { margin: 10px 5px; text-align: center; }

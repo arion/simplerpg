@@ -41,6 +41,6 @@ Crafty.c('FourwayAI', {
         this._movement.y = step;
     }
 
-        this.trigger('NewDirection', this._movement);
+    this.trigger('NewDirection', this._movement);
   }
 });

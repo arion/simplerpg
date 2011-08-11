@@ -9,7 +9,7 @@ Crafty.scene("loading", function() {
   // меняем цвет фона
   Crafty.background("#000");
   // выводим по центру текст
-  Crafty.e("2D, DOM, Text").attr({w: 100, h: 20, x: 150, y: 120})
+  Crafty.e("2D, DOM, Text").attr({w: 100, h: 20, x: 200, y: 120})
     .text("Loading... <br/>Level: " + Settings.level)
     .css({"text-align": "center"});
 });

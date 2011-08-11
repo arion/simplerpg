@@ -3704,6 +3704,7 @@ Crafty.c("Multiway", {
 
         this.bind("KeyDown", function(e) {
             if(this._keys[e.key]) {
+              debugger
                 this._movement.x = Math.round((this._movement.x + this._keys[e.keyCode].x)*1000)/1000;
                 this._movement.y = Math.round((this._movement.y + this._keys[e.keyCode].y)*1000)/1000;
                 this.trigger('NewDirection', this._movement);
